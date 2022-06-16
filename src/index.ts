@@ -1,7 +1,8 @@
 import express, { Express, Request, Response } from 'express';
-import dotenv from 'dotenv';
 import { join } from 'path';
+import dotenv from 'dotenv';
 import morgan from 'morgan';
+import driversRoutes from './drivers/drivers.routes';
 
 dotenv.config();
 
@@ -17,6 +18,9 @@ app.use(morgan('tiny'));
 app.get('/', (req: Request, res: Response) => {
 	res.send('init');
 });
+
+// Routes
+driversRoutes(app);
 
 app.listen(port, () => {
 	console.log(`Server is running @ http://localhost:${port}`);
