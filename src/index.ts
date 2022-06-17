@@ -3,6 +3,7 @@ import { join } from 'path';
 import dotenv from 'dotenv';
 import morgan from 'morgan';
 import driversRoutes from './drivers/drivers.routes';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -14,6 +15,9 @@ app.use('/public', express.static(join(__dirname, 'public')));
 
 // Minimal logging
 app.use(morgan('tiny'));
+
+// Enable cors
+app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
 	res.send('init');

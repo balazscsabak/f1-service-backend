@@ -21,9 +21,13 @@ export function editPilotsData(id: number) {
 	if (selectedPilotIndex === 0) return shuffledDrivers;
 
 	const temp = shuffledDrivers[selectedPilotIndex - 1];
+	const tempPosition = shuffledDrivers[selectedPilotIndex].place;
 
 	shuffledDrivers[selectedPilotIndex - 1] = shuffledDrivers[selectedPilotIndex];
+	shuffledDrivers[selectedPilotIndex - 1].place = temp.place;
+
 	shuffledDrivers[selectedPilotIndex] = temp;
+	shuffledDrivers[selectedPilotIndex].place = tempPosition;
 
 	return shuffledDrivers;
 }
