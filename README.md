@@ -25,3 +25,8 @@ npm run build
 
 npm start
 </pre>
+
+### Or use it with docker
+<pre>
+docker-compose up -d
+</pre>
